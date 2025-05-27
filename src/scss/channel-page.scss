@@ -1,0 +1,270 @@
+.page {
+    // .page__main-content
+    &__main-content {
+    }
+}
+.channel-page {
+    // .channel-page__banner
+    &__banner {
+        border-radius: toRem(14);
+        width: 100%;
+        max-height: toRem(280);
+        &:not(:last-child) {
+            margin-bottom: toRem(30);
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    // .channel-page__content
+    &__content {
+    }
+}
+.channel-section {
+    // .channel-section__header
+    &__header {
+        display: flex;
+        gap: toRem(10);
+        flex-wrap: wrap;
+        justify-content: start;
+        align-items: center;
+        &:not(:last-child) {
+            margin-bottom: toRem(20);
+        }
+    }
+    // .channel-section__info
+    &__info {
+        flex-grow: 1;
+        display: flex;
+        justify-self: start;
+        column-gap: toRem(14);
+        align-items: center;
+    }
+    // .channel-section__avatar
+    &__avatar {
+        max-width: toRem(80);
+        max-height: toRem(80);
+        border-radius: 50%;
+    }
+    // .channel-section__meta
+    &__meta {
+        display: grid;
+        row-gap: toRem(5);
+    }
+    // .channel-section__name
+    &__name {
+        color: $titleColor;
+        font-weight: 700;
+        @include adaptiveValue("font-size", 26, 22);
+    }
+    // .channel-section__subs
+    &__subs {
+        font-size: toRem(13);
+        color: $subTitleColor;
+    }
+    // .channel-section__subscribe
+    &__subscribe {
+        justify-self: end;
+    }
+    // .channel-section__wrapper
+    &__wrapper {
+        display: flex;
+        column-gap: toRem(10);
+        align-items: start;
+        justify-content: space-between;
+        &:not(:last-child) {
+            margin-bottom: toRem(60);
+        }
+    }
+    // .channel-section__main
+    &__main {
+        max-width: toRem(1125);
+    }
+    // .channel-section__navigation
+    &__navigation {
+        &:not(:last-child) {
+            margin-bottom: toRem(60);
+        }
+    }
+    // .channel-section__main-video
+    &__main-video {
+    }
+    // .channel-section__recomended
+    &__recomended {
+    }
+}
+.subscribe-block {
+    display: flex;
+    align-items: center;
+    gap: toRem(20);
+    // .subscribe-block__notification
+    &__notification {
+        svg {
+            opacity: 0.24;
+            fill: #000;
+        }
+    }
+    // .subscribe-block__button
+    &__button {
+    }
+}
+.subscribe-button {
+}
+.horisontal-nav {
+    // .horisontal-nav__list
+    &__list {
+        display: flex;
+        @include adaptiveValue("gap", 60, 15);
+    }
+    // .horisontal-nav__item
+    &__item {
+    }
+    // .horisontal-nav__link
+    &__link {
+        padding: 0 toRem(5);
+        font-size: toRem(18);
+        position: relative;
+        &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: toRem(2);
+            border-radius: toRem(3);
+            background-color: $subTitleColor;
+            opacity: 0;
+
+            transition:
+                opacity 0.3s,
+                bottom 0.3s;
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                &::before {
+                    bottom: -5px;
+                    opacity: 1;
+                }
+            }
+        }
+
+        &._active {
+            font-weight: 700;
+            color: $redColor;
+            &::before {
+                opacity: 1;
+                content: "";
+                bottom: -5px;
+                left: 0;
+                background-color: $redColor;
+            }
+        }
+    }
+    // .horisontal-nav__search-button
+    &__search-button {
+        svg {
+            fill: #000;
+        }
+    }
+}
+
+.channel-main-video {
+    display: flex;
+    @media (max-width: toEm(1300)) {
+        flex-direction: column;
+    }
+    @include adaptiveValue("column-gap", 24, 10, 0, $containerWidth, 1300);
+    // .channel-main-video__preview
+    &__preview {
+        position: relative;
+        overflow: hidden;
+        border-radius: toRem(14);
+        width: 100%;
+        align-self: start;
+        max-height: toRem(250);
+        max-width: toRem(540);
+        // padding-bottom: 46.296296%; /* 250/540 */
+    }
+    // .channel-main-video__image
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    // .channel-main-video__duration
+    &__duration {
+        position: absolute;
+        bottom: toRem(10);
+        right: toRem(10);
+        background-color: rgba(0, 0, 0, 0.3);
+        color: #fff;
+        font-size: toRem(14);
+        padding: toRem(4) toRem(9);
+        border-radius: toRem(12);
+    }
+    // .channel-main-video__info
+    &__info {
+        max-width: toRem(548);
+    }
+    // .channel-main-video__title
+    &__title {
+        font-weight: 700;
+        @include adaptiveValue("font-size", 26, 18);
+        line-height: 1.31;
+        color: $titleColor;
+        &:not(:last-child) {
+            margin-bottom: toRem(10);
+        }
+    }
+    // .channel-main-video__text
+    &__text {
+        opacity: 0.6;
+        line-height: 1.37;
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 30, 10);
+        }
+    }
+    // .channel-main-video__meta
+    &__meta {
+        color: $subTitleColor;
+        line-height: 1.37;
+    }
+}
+.recomended-channels {
+    // .recomended-channels__title
+    &__title {
+        color: $subTitleColor;
+        &:not(:last-child) {
+            margin-bottom: toRem(30);
+        }
+    }
+    // .recomended-channels__list
+    &__list {
+        display: grid;
+        row-gap: toRem(30);
+    }
+    // .recomended-channels__item
+    &__item {
+    }
+    // .recomended-channels__link
+    &__link {
+        display: flex;
+        align-items: center;
+        column-gap: toRem(20);
+    }
+    // .recomended-channels__avatar
+    &__avatar {
+        max-width: toRem(50);
+        max-height: toRem(50);
+        border-radius: 50%;
+    }
+    // .recomended-channels__name
+    &__name {
+        font-size: toRem(18);
+        font-weight: 700;
+        color: $titleColor;
+    }
+}

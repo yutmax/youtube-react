@@ -1,0 +1,117 @@
+.header {
+    padding-top: toRem(20);
+    padding-bottom: toRem(30);
+    // .header__container
+    &__container {
+        display: flex;
+        @include adaptiveValue("column-gap", 59, 15);
+    }
+    // .header__left
+    &__left {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: toRem(28);
+    }
+    // .header__menu
+    &__menu {
+        @media (max-width: $mobile) {
+            display: none;
+        }
+    }
+    // .header__logo
+    &__logo {
+    }
+    // .header__center
+    &__center {
+        flex-grow: 1;
+    }
+    // .header__right
+    &__right {
+    }
+}
+.search-line {
+    @media (min-width: $mobileSmall) {
+        max-width: toRem(830);
+        position: relative;
+    }
+    @media (max-width: $mobileSmall) {
+        height: 100%;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+    }
+
+    // .search-line__input
+    &__input {
+        @media (max-width: $mobileSmall) {
+            display: none;
+        }
+    }
+    // .search-line__button
+    &__button {
+        svg {
+            fill: #000;
+        }
+        max-width: toRem(19);
+        max-height: toRem(19);
+        @media (min-width: $mobileSmall) {
+            position: absolute;
+            top: 50%;
+            right: toRem(18);
+            transform: translate(0px, -50%);
+        }
+    }
+}
+
+.user-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include adaptiveValue("column-gap", 50, 24);
+    // .user-panel__link
+    &__link {
+        svg path {
+            transition:
+                fill 0.3s,
+                opacity 0.3s;
+            fill: #000;
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                svg path {
+                    fill: $redColor;
+                    opacity: 1;
+                }
+            }
+        }
+        @media (max-width: $mobile) {
+            &:not(:last-child) {
+                display: none;
+            }
+        }
+    }
+    // .user-panel__avatar
+    &__avatar {
+    }
+}
+
+.notification {
+    position: relative;
+    // .notification__info
+    &__info {
+        position: absolute;
+        top: -6px;
+        right: -5px;
+        width: 20px;
+        height: 20px;
+        font-weight: 700;
+        color: #fff;
+        background-color: $redColor;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: toRem(12);
+    }
+}
