@@ -1,9 +1,11 @@
 // Заголовки, загальні БЕМ блоки та інше...
 .subscribe-button {
-    border-radius: toRem(20);
-    color: #fff;
-    background-color: $redColor;
-    padding: toRem(10) toRem(20);
+    @media (min-width: $mobile) {
+        border-radius: toRem(20);
+        color: #fff;
+        background-color: $redColor;
+        padding: toRem(10) toRem(20);
+    }
     transition: background-color 0.3s;
 
     @media (any-hover: hover) {
@@ -11,4 +13,118 @@
             background-color: darken($redColor, 10%);
         }
     }
+
+    @media (max-width: $mobile) {
+        color: $redColor;
+        span {
+            display: none;
+        }
+    }
 }
+
+.action-button {
+    border-radius: toRem(20);
+    padding: toRem(10) toRem(20);
+    background-color: #ebebeb;
+    color: $titleColor;
+    display: flex;
+    column-gap: toRem(8);
+    justify-content: center;
+    align-items: center;
+
+    svg {
+        fill: rgba(0, 0, 0, 0.24);
+    }
+    transition: background-color 0.3s;
+    @media (any-hover: hover) {
+        &:hover {
+            background-color: darken(#ebebeb, 10%);
+        }
+    }
+}
+
+.custom-range-track {
+    width: toRem(86);
+    height: toRem(8);
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: toRem(8);
+    cursor: pointer;
+    position: relative;
+}
+
+.custom-range-progress {
+    position: absolute;
+    height: 100%;
+    background: #fff;
+    border-radius: toRem(4);
+}
+//========================================================================================================================================================
+.toggle-container {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: toRem(44);
+    height: toRem(28);
+
+    &__input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+
+        &:checked + .toggle-switch__slider {
+            // background-color: #4caf50;
+        }
+
+        &:checked + .toggle-switch__slider:before {
+            transform: translateX(16px);
+            background-color: $blueColor;
+        }
+
+        &:focus + .toggle-switch__slider {
+            // box-shadow: 0 0 1px #4caf50;
+        }
+    }
+
+    &__slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ebebeb;
+        transition: 0.4s;
+        border-radius: 34px;
+
+        &:before {
+            position: absolute;
+            content: "";
+            height: 24px;
+            width: 24px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+            box-shadow:
+                0 1px 1px 0 rgba(0, 0, 0, 0.24),
+                0 0 1px 0 rgba(0, 0, 0, 0.12);
+        }
+    }
+}
+
+.toggle-switch__label {
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: $titleColor;
+    @include adaptiveValue("font-size", 16, 10);
+}
+//========================================================================================================================================================

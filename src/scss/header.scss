@@ -1,6 +1,9 @@
 .header {
-    padding-top: toRem(20);
-    padding-bottom: toRem(30);
+    @include adaptiveValue("padding-top", 20, 12);
+    @include adaptiveValue("padding-bottom", 20, 12);
+    &:not(:last-child) {
+        @include adaptiveValue("margin-bottom", 30, 3);
+    }
     // .header__container
     &__container {
         display: flex;

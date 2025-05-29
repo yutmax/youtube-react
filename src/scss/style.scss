@@ -29,6 +29,7 @@ $greyColor: #898989;
 $backgroundColor: #fff;
 $inputBackground: rgba(235, 235, 235, 0.3);
 $placeholderColor: rgba(48, 56, 76, 0.4);
+$blueColor: #2196f3;
 
 // Палітра кольорів
 // @import "base/colors-palette";
@@ -124,7 +125,7 @@ body {
 		}
 	}
 	[class*="__container--narrow"] {
-		max-width: toRem(1515);
+		max-width: toRem(1775);
 		// padding: 0;
 	}
 } @else {
@@ -172,4 +173,3 @@ body {
 
 // Підключення стилів окремих сторінок
 @import "home";
-@import "channel-page";
