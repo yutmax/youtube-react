@@ -3,21 +3,10 @@ import VideoDescription from "./VideoDescription";
 const VideoInfo = () => {
   return (
     <div className="video-player-section__info">
-      {/* <div className="video-player-section__description video-description">
-        <div className="video-description__top-bar">
-          <h2 className="video-description__title">Dude You Re Getting A Telescope</h2>
-          <button className="video-description__show-button">
-            <svg class="dropdown-icon" width="12" height="7" viewBox="0 0 12 7" fill="none">
-              <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" />
-            </svg>
-          </button>
-        </div>
-
-        <div className="video-description__body"></div>
-      </div> */}
+     
 
       <VideoDescription title={"Dude You Re Getting A Telescope"} descriptionText={"A successful marketing plan relies heavily on the pulling-power of advertising copy. Writing result-oriented ad copy is difficult, as it must appeal to, entice, and convince consumers to take action. There is no magic formula to write perfect ad copy; it is based on a number of factors, including ad placement, demographic, even the consumer’s mood when they see your ad. A successful marketing plan relies heavily on the pulling-power of advertising copy. Writing result-oriented ad copy is difficult, as it must appeal to, entice, and convince consumers to take action. There is no magic formula to write perfect ad copy; it is based on a number of factors, including ad placement, demographic, even the consumer’s mood when they see your ad. "} />
-      {/* <h2 className="video-player-section__title"></h2> */}
+    
       <div className="video-player-section__meta">
         <div className="video-player-section__views">123k views</div>
 

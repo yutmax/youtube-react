@@ -1,4 +1,4 @@
-import channelAvatar from "../img/channels/large.jpg";
+import channelAvatar from "../img/channels/large.webp";
 import ShowMore from "./ShowMore";
 import { useMediaQuery } from "react-responsive";
 
@@ -12,7 +12,7 @@ const ChannelInfo = () => {
         <div className="channel-info-block__wrapper">
           <div className="channel-info-block__titles">
             <h3 className="channel-info-block__name">Food & Drink</h3>
-            <h6 className="channel-info-block__subtitle">Published on 14 Jun 2019</h6>
+            <span className="channel-info-block__subtitle">Published on 14 Jun 2019</span>
           </div>
           <button className="subscribe-button">
             Subscribe <span>2.3m</span>

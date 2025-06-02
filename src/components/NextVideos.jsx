@@ -1,8 +1,8 @@
 import { useState } from "react";
-import preview01 from "../img/previews/next/01.jpg";
-import preview02 from "../img/previews/next/02.jpg";
-import preview03 from "../img/previews/next/03.jpg";
-import preview04 from "../img/previews/next/04.jpg";
+import preview01 from "../img/previews/next/01.webp";
+import preview02 from "../img/previews/next/02.webp";
+import preview03 from "../img/previews/next/03.webp";
+import preview04 from "../img/previews/next/04.webp";
 import Toggle from "./Toggle";
 
 const NextVideos = () => {

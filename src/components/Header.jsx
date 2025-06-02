@@ -1,5 +1,5 @@
 import logo from "../img/icons/logoFull.svg";
-import userAvatar from "../img/avatar/userpic.jpg";
+import userAvatar from "../img/avatar/userpic.webp";
 
 const Header = () => {
   return (

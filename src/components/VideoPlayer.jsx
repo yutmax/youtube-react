@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect, useCallback } from "react";
-import video from "../video/video2.mp4";
+import video from "../video/video.webm";
 import CustomRange from "./CustomRange";
 import { useMediaQuery } from "react-responsive";
 
@@ -81,10 +81,10 @@ const VideoPlayer = () => {
   };
 
   const toggleVolume = () => {
-    if (volume > 0) {
-      setVolume(0);
-    } else {
-      setVolume(1);
+    const newVolume = volume > 0 ? 0 : 1;
+    setVolume(newVolume);
+    if (videoRef.current) {
+      videoRef.current.volume = newVolume;
     }
   };
 
@@ -115,14 +115,17 @@ const VideoPlayer = () => {
     }
   }, [updateProgress]);
 
+  const handlePlay = () => setIsPlaying(true);
+  const handlePause = () => setIsPlaying(false);
+
   return (
     <div className="video-player">
-      <video className="video-player__video" src={video} ref={videoRef} onPlay={() => setIsPlaying(true)} onPause={() => setIsPlaying(false)} />
+      <video className="video-player__video" src={video} ref={videoRef} onPlay={handlePlay} onPause={handlePause} />
 
       {isMobile ? (
         <div className="video-player__toolbar-min video-toolbar-min">
           <div className="video-toolbar-min__wrapper">
-            <button onClick={togglePlay} className={`video-toolbar-min__control video-toolbar-min__control--play ${isPlaying ? "_play" : ""}`}></button>
+            <button onClick={togglePlay} className={`video-toolbar-min__control video-toolbar-min__control--play ${isPlaying && "_play"}`}></button>
 
             <div className="video-toolbar-min__progress-info">
               <div className="video-toolbar-min__time">12:12</div>
@@ -134,7 +137,7 @@ const VideoPlayer = () => {
               <div className="video-toolbar-min__time">12:12</div>
             </div>
 
-            <button onClick={toggleVolume} className={`video-toolbar-min__control ${volume === 0 ? "_volume-off" : null}`}>
+            <button onClick={toggleVolume} className={`video-toolbar-min__control ${volume === 0 && "_volume-off"}`}>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M21.36 12C21.36 16.725 18.015 20.37 13.5 21.465V24C19.485 22.86 24 17.91 24 12C24 6.075 19.485 1.125 13.5 0V2.52C18.015 3.615 21.36 7.26 21.36 12ZM10.5 23.25L3.6 15.66H0V8.31H3.585L10.5 0.72V23.25ZM18 11.985C18 9.6 16.11 7.575 13.5 6.81V17.16C16.11 16.395 18 14.385 18 11.985Z" fill="white" />
               </svg>
@@ -154,13 +157,13 @@ const VideoPlayer = () => {
 
           <div className="video-toolbar__controls video-controls">
             <div className="video-controls__left">
-              <button onClick={togglePlay} className={`video-controls__control video-controls__control--play ${isPlaying ? "play" : ""}`}></button>
+              <button onClick={togglePlay} className={`video-controls__control video-controls__control--play ${isPlaying && "play"}`}></button>
               <button className="video-controls__control">
                 <svg width="27" height="18" viewBox="0 0 27 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M10.8 0V5.985L0 0V16.5L10.8 10.5V16.5L23.25 9.9V16.5H27V0H23.25V7.425L10.8 0Z" fill="white" />
                 </svg>
               </button>
-              <button onClick={toggleVolume} className={`video-controls__control ${volume === 0 ? "_volume-off" : null}`}>
+              <button onClick={toggleVolume} className={`video-controls__control ${volume === 0 && "_volume-off"}`}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M21.36 12C21.36 16.725 18.015 20.37 13.5 21.465V24C19.485 22.86 24 17.91 24 12C24 6.075 19.485 1.125 13.5 0V2.52C18.015 3.615 21.36 7.26 21.36 12ZM10.5 23.25L3.6 15.66H0V8.31H3.585L10.5 0.72V23.25ZM18 11.985C18 9.6 16.11 7.575 13.5 6.81V17.16C16.11 16.395 18 14.385 18 11.985Z" fill="white" />
                 </svg>

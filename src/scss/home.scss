@@ -73,6 +73,8 @@
     position: relative;
     overflow: hidden;
 
+    cursor: pointer;
+
     // .video-progress-bar__progress
     &__progress {
         position: absolute;
