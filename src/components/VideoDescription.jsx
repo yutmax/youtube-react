@@ -17,7 +17,7 @@ const VideoDescription = ({ title, descriptionText }) => {
         </button>
       </div>
 
-      <div className={`video-description__body ${descOpen ? "_open" : ""}`}>{descriptionText}</div>
+      <div className={`video-description__body ${descOpen && "_open"}`}>{descriptionText}</div>
     </div>
   );
 };
